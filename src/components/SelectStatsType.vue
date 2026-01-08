@@ -28,7 +28,7 @@ const types = [
     ]
 ;
 
-const emit = defineEmits({statsTypeChanged: (value: string) => true})
+const emit = defineEmits({statsTypeChanged: (_value:string) => true})
 
 
 watch(statisticType, (newValue) => {

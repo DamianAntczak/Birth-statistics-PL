@@ -6,7 +6,7 @@ import {createRouter, createWebHistory} from "vue-router";
 
 const routes = [
     {
-        path: '/',
+        path: '/Birth-statistics-PL',
         component: App,
         pathToRegexpOptions: {strict: false}
     }

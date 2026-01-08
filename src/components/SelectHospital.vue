@@ -17,7 +17,7 @@ const route = useRoute();
 
 const hospitalId = ref();
 
-const emit = defineEmits({hospitalIdChanged: (value: string) => true})
+const emit = defineEmits({hospitalIdChanged: (_value: string) => true})
 
 function hospitalIdChanged(value: any) {
   emit('hospitalIdChanged', value)

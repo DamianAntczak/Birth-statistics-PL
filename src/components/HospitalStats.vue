@@ -26,7 +26,7 @@ function onHospitalIdChanged(event: any) {
     >
       <template #avatar>
         <n-avatar
-            src="favicon.svg"
+            src="/Birth-statistics-PL/favicon.svg"
         />
       </template>
     </n-page-header>

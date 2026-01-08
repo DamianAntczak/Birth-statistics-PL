@@ -1,6 +1,6 @@
 export interface GraphData {
     [key: string]: {
-        years: string[];
+        years: number[];
         statistics: {
             [statKey: string]: number[];
         };

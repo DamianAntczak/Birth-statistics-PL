@@ -15,6 +15,7 @@ import { Line } from 'vue-chartjs'
 import * as chartConfig from '../common/chartConfig.ts'
 import jsonData from '../assets/year-stats-PL-PO.json';
 import type { GraphData } from '../common/GraphData.ts'
+import type {StatsType} from "../common/StatsType.ts";
 
 
 ChartJS.register(
@@ -46,7 +47,7 @@ const options = computed(() => {
 const datasetLabels = chartConfig.datasetLabels;
 const datasetColors = chartConfig.datasetColors;
 
-function updateChart(hospitalId: any, statsType: string) {
+function updateChart(hospitalId: any, statsType: StatsType) {
 
   chartData.value = {
     labels: data.graphDataMap[hospitalId].years,
@@ -62,10 +63,10 @@ function updateChart(hospitalId: any, statsType: string) {
 
 watch(
     [() => props.hospitalId, () => props.statsType],
-    ([newHospitalId, newStatsType], [oldHospitalId, oldStatsType]) => {
+    ([newHospitalId, newStatsType]) => {
 
       if (newHospitalId && newStatsType) {
-        updateChart(newHospitalId, newStatsType);
+        updateChart(newHospitalId, newStatsType as StatsType);
       }
     }
 );

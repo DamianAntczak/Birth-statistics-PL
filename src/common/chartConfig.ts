@@ -1,7 +1,7 @@
 import type {ChartOptions} from 'chart.js';
 import {StatsType} from "./StatsType.ts";
 
-export function createOptions(statisticType?: string): ChartOptions {
+export function createOptions(statisticType?: string): ChartOptions<'line'> {
     return {
         responsive: true,
         maintainAspectRatio: true,
