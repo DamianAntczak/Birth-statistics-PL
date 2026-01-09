@@ -17,24 +17,25 @@ const route = useRoute();
 
 const hospitalId = ref();
 
+const props = defineProps<{
+  statsType?: string
+}>()
+
 const emit = defineEmits({hospitalIdChanged: (_value: string) => true})
 
 function hospitalIdChanged(value: any) {
   emit('hospitalIdChanged', value)
 }
 
-watch(hospitalId, (newValue) => {
-  if (router && route) {
-    router.push({
-      query: {
-        ...route.query,
-        hospitalId: newValue
-      }
-    });
+watch(hospitalId, (_newValue) => {
+  if(props.statsType !== undefined) {
+    router.push({name: 'StatsDetail', params: {hospitalId: _newValue, statsType: props.statsType}})
+  } else {
+    router.push({name: 'StatsHospital', params: {hospitalId: _newValue}})
   }
 });
 
-watch(() => route.query.hospitalId, (newValue) => {
+watch(() => route.params.hospitalId, (newValue) => {
   if (newValue && hospitalId.value !== newValue) {
     hospitalId.value = newValue.toString();
     hospitalIdChanged(hospitalId.value)

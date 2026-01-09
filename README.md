@@ -1,6 +1,6 @@
 # Statystyki porodów dla wybranego szpitala
 
-[Sprawdź](https://damianantczak.github.io/Birth-statistics-PL/)
+[Sprawdź](https://damianantczak.github.io/birth-statistics-pl/)
 
 >Aktualnie tylko dla szpitali z Poznania
 

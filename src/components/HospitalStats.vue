@@ -26,11 +26,14 @@ function onHospitalIdChanged(event: any) {
     >
       <template #avatar>
         <n-avatar
-            src="/Birth-statistics-PL/favicon.svg"
+            src="/birth-statistics-pl/favicon.svg"
         />
       </template>
     </n-page-header>
-    <SelectHospital @hospitalIdChanged="onHospitalIdChanged($event)"/>
+    <SelectHospital
+        @hospitalIdChanged="onHospitalIdChanged($event)"
+        :stats-type="statsType"
+        />
     <SelectStatsType
         @statsTypeChanged="onStatsTypeChanged($event)"/>
     <n-divider/>

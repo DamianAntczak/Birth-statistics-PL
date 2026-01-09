@@ -2,18 +2,30 @@ import {createApp} from 'vue'
 import './style.css'
 import naive from "naive-ui";
 import App from './App.vue'
-import {createRouter, createWebHistory} from "vue-router";
+import {createRouter, createWebHashHistory} from "vue-router";
+import HospitalStats from "./components/HospitalStats.vue";
 
 const routes = [
+
     {
-        path: '/Birth-statistics-PL',
-        component: App,
-        pathToRegexpOptions: {strict: false}
+        path: '/',
+        name: 'StatsRoot',
+        component: HospitalStats
+    },
+    {
+        path: '/hospital/:hospitalId',
+        name: 'StatsHospital',
+        component: HospitalStats
+    },
+    {
+        path: '/hospital/:hospitalId/statsType/:statsType',
+        name: 'StatsDetail',
+        component: HospitalStats
     }
 ]
 
 const router = createRouter({
-    history: createWebHistory(),
+    history: createWebHashHistory('/birth-statistics-pl'),
     routes
 })
 

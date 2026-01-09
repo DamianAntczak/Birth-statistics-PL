@@ -32,16 +32,11 @@ const emit = defineEmits({statsTypeChanged: (_value:string) => true})
 
 
 watch(statisticType, (newValue) => {
-    router.push({
-      query: {
-        ...route.query,
-        statsType: newValue
-      }
-    });
+    router.push({ name: 'StatsDetail', params: { statsType: newValue } })
     statisticTypeChanged(statisticType.value)
 });
 
-watch(() => route.query.statsType, (newValue) => {
+watch(() => route.params.statsType, (newValue) => {
   if (newValue && statisticType.value !== newValue) {
     statisticType.value = newValue.toString();
     statisticTypeChanged(statisticType.value)
