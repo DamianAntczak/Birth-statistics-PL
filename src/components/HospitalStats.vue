@@ -19,37 +19,48 @@ function onHospitalIdChanged(event: any) {
 </script>
 
 <template>
-  <n-flex id="container"
-          justify="center">
-    <n-page-header title="Statystyki porodów dla szpitali"
-                   subtitle="na podstawie z danych NFZ*"
-    >
-      <template #avatar>
-        <n-avatar
-            src="/birth-statistics-pl/favicon.svg"
+  <n-grid :cols="24" :x-gap="8">
+    <n-gi :span="6" :span-md="0">
+    </n-gi>
+    <n-gi :span="12" :span-md="24">
+      <div class="content-container">
+
+        <n-page-header title="Statystyki porodów dla szpitali"
+                       subtitle="na podstawie z danych NFZ*"
+        >
+          <template #avatar>
+            <n-avatar
+                src="/birth-statistics-pl/favicon.svg"
+            />
+          </template>
+        </n-page-header>
+        <n-divider/>
+        <SelectHospital
+            @hospitalIdChanged="onHospitalIdChanged($event)"
+            :stats-type="statsType"
         />
-      </template>
-    </n-page-header>
-    <SelectHospital
-        @hospitalIdChanged="onHospitalIdChanged($event)"
-        :stats-type="statsType"
-        />
-    <SelectStatsType
-        @statsTypeChanged="onStatsTypeChanged($event)"/>
-    <n-divider/>
-    <LineChart
-        :hospital-id="hospitalId"
-        :stats-type="statsType"/>
-    <n-ellipsis style="margin-top: 10px">
-      *Dane pochodzą z portalu <a href="https://ezdrowie.gov.pl/portal/home/badania-i-dane/zdrowe-dane/monitorowanie/porody-opieka-okoloporodowa">https://ezdrowie.gov.pl</a><br/>
-      W przypadku roku 2025 dane podane są dla I półrocza
-    </n-ellipsis>
-  </n-flex>
+        <n-flex justify="center">
+          <SelectStatsType
+              @statsTypeChanged="onStatsTypeChanged($event)"/>
+        </n-flex>
+        <n-divider/>
+        <LineChart
+            :hospital-id="hospitalId"
+            :stats-type="statsType"/>
+        <n-ellipsis style="margin-top: 10px">
+          *Dane pochodzą z portalu <a
+            href="https://ezdrowie.gov.pl/portal/home/badania-i-dane/zdrowe-dane/monitorowanie/porody-opieka-okoloporodowa">https://ezdrowie.gov.pl</a><br/>
+          W przypadku roku 2025 dane podane są dla I półrocza
+        </n-ellipsis>
+      </div>
+    </n-gi>
+    <n-gi :span="6" :span-md="0">
+    </n-gi>
+  </n-grid>
 </template>
 
 <style scoped>
-#container{
+div.content-container {
   margin-top: 30px;
-  margin-left: 25%; margin-right: 25%;
 }
 </style>
