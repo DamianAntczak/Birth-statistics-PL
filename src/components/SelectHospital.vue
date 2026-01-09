@@ -1,16 +1,8 @@
 <script setup lang="ts">
 import {ref, watch} from "vue";
 import {useRoute, useRouter} from "vue-router";
+import hospitals from '../assets/hospitals.json';
 
-const options = [
-  {label: 'Specjalistyczny Zespół Opieki Zdrowotnej Nad Matką i Dzieckiem w Poznaniu', value: '150003180'},
-  {
-    label: 'Ginekologiczno-Położniczy Szpital Kliniczny Uniwersytetu Medycznego im. Karola Marcinkowskiego w Poznaniu',
-    value: '150000001'
-  },
-  {label: 'Szpital Miejski im. Franciszka Raszei', value: '150000072'},
-  {label: 'Szpital Wojewódzki w Poznaniu', value: '150000038'}
-]
 
 const router = useRouter();
 const route = useRoute();
@@ -47,7 +39,7 @@ watch(() => route.params.hospitalId, (newValue) => {
 <template>
   <n-form-item label="Szpital" label-placement="left" style="width: 100%">
     <n-select name="hospitals" id="hospitals"
-              :options="options"
+              :options="hospitals"
               placeholder="Wybierz szpital"
               v-model:value="hospitalId"
               @update:value="hospitalIdChanged"
