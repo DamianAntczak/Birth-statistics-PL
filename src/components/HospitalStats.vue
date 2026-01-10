@@ -19,10 +19,10 @@ function onHospitalIdChanged(event: any) {
 </script>
 
 <template>
-  <n-grid :cols="24" :x-gap="8">
-    <n-gi :span="6" :span-md="0">
-    </n-gi>
-    <n-gi :span="12" :span-md="24">
+  <n-grid cols="10" item-responsive responsive="screen">
+    <n-grid-item span="0 m:1 l:2">
+    </n-grid-item>
+    <n-grid-item  span="10 m:8 l:6">
       <div class="content-container">
 
         <n-page-header title="Statystyki porodów dla szpitali"
@@ -53,14 +53,14 @@ function onHospitalIdChanged(event: any) {
           W przypadku roku 2025 dane podane są dla I półrocza
         </n-ellipsis>
       </div>
-    </n-gi>
-    <n-gi :span="6" :span-md="0">
-    </n-gi>
+    </n-grid-item>
+    <n-grid-item span="0 m:1 l:2">
+    </n-grid-item>
   </n-grid>
 </template>
 
 <style scoped>
 div.content-container {
-  margin-top: 30px;
+  margin: 30px 10px;
 }
 </style>
